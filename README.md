@@ -21,7 +21,7 @@ Requisiti
 
 Avvio locale
 
-1) Backend (FastAPI)
+Backend (FastAPI)
 (bash)
 cd backend
 python -m venv .venv
