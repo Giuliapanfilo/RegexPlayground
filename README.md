@@ -9,7 +9,7 @@ Funzionalità
 - Flag configurabili
 - Auto-run con debounce, scorciatoia **Ctrl/Cmd+Enter**
 - Stato ↔ URL (link condivisibile) + bottone **Copia link**
-- (Se il backend lo fornisce) gruppi di cattura posizionali e nominati
+- Gruppi di cattura posizionali e nominati
 
 
 Requisiti
