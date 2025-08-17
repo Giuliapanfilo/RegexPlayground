@@ -1,43 +1,34 @@
 # Regex Playground
 
-Playground per testare espressioni regolari con evidenziazione match, tabella risultati e flag (`IGNORECASE`, `MULTILINE`, `DOTALL`).  
-Frontend: **Vite + React + TypeScript** • Backend: **FastAPI (Python)**
+Playground per testare espressioni regolari.
+- **Frontend**: Vite + React + TypeScript
+- **Backend**: FastAPI (Python)
 
-Funzionalità
-- Esecuzione regex con evidenziazione del testo
-- Tabella risultati con indici `start`/`end`
-- Flag configurabili
-- Auto-run con debounce, scorciatoia **Ctrl/Cmd+Enter**
-- Stato ↔ URL (link condivisibile) + bottone **Copia link**
-- Gruppi di cattura posizionali e nominati
+## Requisiti
+- Node.js 18+ (o 20+)
+- Python 3.10+ (consigliato 3.11)
+- `pip`
 
+## Avvio rapido (2 terminali)
 
-Requisiti
-- **Node.js** 18+ (o 20+)
-- **Python** 3.10+ (consigliato 3.11)
-- `pip` per installare le dipendenze Python
-
----
-
-Avvio locale
-
-Backend (FastAPI)
-(bash)
+### 1) Backend
+bash
 cd backend
 python -m venv .venv
-
-Linux/macOS:
+# Linux/macOS:
 source .venv/bin/activate
+# Windows:
+# .venv\Scripts\activate
 
-Windows:
-.venv\Scripts\activate
+# dipendenze
+pip install -r requirements.txt || pip install fastapi uvicorn pydantic
 
-
-pip install -r requirements.txt
-Altrimenti:
-pip install fastapi uvicorn pydantic
-
-
-
+# avvio
 uvicorn app.main:app --reload --port 8000
 
+### 2) Frontend
+cd frontend
+# imposta l'URL del backend
+echo "VITE_API_BASE=http://127.0.0.1:8000" > .env
+npm ci
+npm run dev
