@@ -18,7 +18,7 @@ python -m venv .venv
 # Linux/macOS:
 source .venv/bin/activate
 # Windows:
-# .venv\Scripts\activate
+.venv\Scripts\activate
 
 # dipendenze
 pip install -r requirements.txt || pip install fastapi uvicorn pydantic
