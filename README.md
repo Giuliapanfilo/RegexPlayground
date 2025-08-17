@@ -25,14 +25,16 @@ Avvio locale
 (bash)
 cd backend
 python -m venv .venv
-# Linux/macOS:
-source .venv/bin/activate
-# Windows:
-# .venv\Scripts\activate
 
-# Se c'è requirements.txt:
+Linux/macOS:
+source .venv/bin/activate
+
+Windows:
+.venv\Scripts\activate
+
+
 pip install -r requirements.txt
-# Altrimenti:
+Altrimenti:
 pip install fastapi uvicorn pydantic
 
 
