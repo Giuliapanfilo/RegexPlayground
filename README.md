@@ -20,10 +20,10 @@ source .venv/bin/activate
 # Windows:
 .venv\Scripts\activate
 
-# dipendenze
+# Dipendenze
 pip install -r requirements.txt || pip install fastapi uvicorn pydantic
 
-# avvio
+# Avvio
 uvicorn app.main:app --reload --port 8000
 
 ### 2) Frontend
