@@ -1,0 +1,157 @@
+/* Root pieno schermo */
+html, body, #root { height: 100%; }
+#root { margin: 0; padding: 0; }
+
+/* Griglia principale */
+.app {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "sidebar"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 25px;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Aree */
+.app-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,.06);
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+.app-sidebar {
+  grid-area: sidebar;
+  background: rgba(255,255,255,.06);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.app-main {
+  grid-area: main;
+  display: grid;
+  gap: 15px;
+}
+.app-footer {
+  grid-area: footer;
+  background: rgba(255,255,255,.06);
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.title { margin: 0; font-size: clamp(22px, 3vw, 32px); }
+.header-actions { display: flex; gap: 12px; align-items: center; }
+
+/* --- Editor: contenuto + regex sempre in colonna --- */
+.editor { display: grid; gap: 8px; }
+.label { display: block; font-weight: 600; }
+
+.textarea,
+.input {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.05);
+  color: inherit;
+}
+
+.textarea {
+  min-height: 180px;
+  resize: vertical; /* può crescere solo in altezza */
+}
+
+/* --- Pannelli --- */
+.panel {
+  background: rgba(255,255,255,.06);
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.panel-title { margin: 0; font-size: 1rem; font-weight: 700; }
+
+/* Highlight */
+.highlight-box {
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 8px;
+  overflow: auto;
+  max-height: 40vh;
+}
+.pre { margin: 0; white-space: pre-wrap; }
+
+/* Tabella risultati */
+.table { width: 100%; border-collapse: collapse; }
+.th, .td { border: 1px solid rgba(255,255,255,.15); padding: 6px 8px; text-align: left; }
+.td code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+
+/* Componenti vari */
+.toggle { display: flex; gap: 8px; align-items: center; padding: 6px 0; }
+.muted { opacity: 0.7; }
+.error {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(176,0,32,.2);
+  border: 1px solid rgba(176,0,32,.4);
+}
+.monospace { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+
+
+/* testo del select (valore mostrato) */
+.preset-select {
+  color: #b2e031;              /* colore del testo */
+  font-weight: 600;            /* opzionale */
+}
+
+/* testo delle opzioni nel menu a tendina */
+.preset-select option {
+  color: #213547;              /* colore testo opzioni */
+  background: #ffffff;         /* bg del menu (supporto variabile tra browser) */
+}
+
+/* placeholder/option disabled più tenue */
+.preset-select option[disabled] {
+  color: rgba(0,0,0,.45);
+}
+
+/* dark mode: migliora contrasto */
+@media (prefers-color-scheme: dark) {
+  .preset-select option {
+    color: #e8f0f7;
+    background: #102a38;
+  }
+}
+.preset-select {
+  appearance: none;            /* rimuove stile nativo */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='currentColor' d='M4.3 6.3 8 10l3.7-3.7-.8-.8L8 8.4 5.1 5.5l-.8.8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 34px;         /* spazio per la freccia */
+}
+.hit { background: #fff59a; }               /* evidenziazione standard */
+.hit.selected { outline: 2px solid #b2e031; box-shadow: 0 0 0 2px #b2e031 inset; }
+.table tr.row-selected { background: rgba(178,224,49,.12); }
+.table tr.row-selected td { border-color: rgba(178,224,49,.5); }
+.table tr { cursor: pointer; }
